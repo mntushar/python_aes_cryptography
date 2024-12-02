@@ -23,7 +23,7 @@ class AesCryptography:
             encrypted_with_iv = iv + encrypted
             return quote(base64.b64encode(encrypted_with_iv).decode('utf-8'))  # Directly return the base64 string
         except Exception as ex:
-            raise Exception(str(ex))
+            raise ex
 
     def decrypt(self, encrypted_text, password):
         try:
@@ -44,7 +44,7 @@ class AesCryptography:
 
             return decrypted_text
         except Exception as ex:
-            raise Exception(str(ex))
+            raise ex
 
     def __generate_key(self, password):
         # Generate a SHA256 hash of the password to create a key
